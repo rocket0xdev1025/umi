@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>yumi umi · $umi</title>
-  <meta name="description" content="good thing $umi runs the trenches. yumi umi is a Solana meme cat. Buy $umi, copy the CA, and watch the chart." />
-  <meta name="theme-color" content="#16110E" />
+  <meta name="description" content="good thing $umi runs the trenches. yumi umi is a Solana trench cat. Buy $umi, copy the CA, and watch the chart." />
+  <meta name="theme-color" content="#14160F" />
   <meta property="og:title" content="yumi umi · $umi" />
   <meta property="og:description" content="good thing $umi runs the trenches." />
   <meta property="og:image" content="banner.jpg" />
@@ -17,35 +17,36 @@
   <link rel="apple-touch-icon" href="logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,560;0,9..144,700;1,9..144,520;1,9..144,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,560;0,9..144,700;1,9..144,560;1,9..144,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root {
-      --cream: #f4ede2;
-      --sand: #cabc9f;
-      --caramel: #c4a378;
-      --cocoa: #473a2a;
-      --ink: #16110e;
-      --sage: #8ea399;
-      --mist: #c3d4cc;
+      --paper: #e6e9d8;
+      --paper-2: #f3f5ea;
+      --khaki: #c9cdb6;
+      --olive: #8e9278;
+      --drab: #5c5e4a;
+      --ink: #24261c;
+      --mud: #14160f;
     }
 
     html { scroll-behavior: smooth; overflow-x: clip; }
 
     body {
       margin: 0;
-      color: var(--cream);
-      font-family: "Outfit", system-ui, sans-serif;
-      background: var(--ink);
+      color: var(--paper);
+      font-family: "Barlow", system-ui, sans-serif;
+      background: var(--mud);
     }
 
     .font-display { font-family: "Fraunces", Georgia, serif; }
+    .font-mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
 
     .scene {
       position: fixed;
       inset: 0;
       z-index: -2;
-      background: url("banner.jpg") right center / cover no-repeat;
+      background: var(--mud) url("bg.jpg") center center / cover no-repeat;
     }
 
     .vignette {
@@ -54,8 +55,8 @@
       z-index: -1;
       pointer-events: none;
       background:
-        linear-gradient(90deg, rgba(16, 12, 10, 0.86) 0%, rgba(16, 12, 10, 0.62) 34%, rgba(16, 12, 10, 0.16) 58%, rgba(16, 12, 10, 0.28) 100%),
-        linear-gradient(180deg, rgba(16, 12, 10, 0.28) 0%, rgba(16, 12, 10, 0.05) 24%, rgba(16, 12, 10, 0.55) 100%);
+        radial-gradient(ellipse at 50% 42%, rgba(20, 22, 15, 0.18) 0%, rgba(20, 22, 15, 0.42) 48%, rgba(20, 22, 15, 0.72) 100%),
+        linear-gradient(180deg, rgba(20, 22, 15, 0.35), transparent 18%, transparent 70%, rgba(20, 22, 15, 0.55));
     }
 
     .grain {
@@ -63,35 +64,37 @@
       inset: 0;
       z-index: 30;
       pointer-events: none;
-      opacity: 0.18;
-      mix-blend-mode: overlay;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.16;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
 
-    ::selection { background: var(--caramel); color: var(--ink); }
+    ::selection { background: var(--drab); color: var(--paper); }
 
     :focus-visible {
-      outline: 2px solid var(--caramel);
+      outline: 2px solid var(--paper);
       outline-offset: 3px;
     }
 
-    .panel {
-      background:
-        radial-gradient(900px 180px at 10% 0%, rgba(196, 163, 120, 0.16), transparent 55%),
-        rgba(22, 17, 14, 0.8);
-      border: 1px solid rgba(196, 163, 120, 0.28);
+    .order {
+      background: var(--paper);
+      color: var(--ink);
       box-shadow:
-        inset 0 1px 0 rgba(244, 237, 226, 0.12),
-        0 30px 70px rgba(0, 0, 0, 0.35);
-      backdrop-filter: blur(16px);
+        0 0 0 1px var(--drab),
+        0 0 0 7px rgba(20, 22, 15, 0.28),
+        0 28px 70px rgba(0, 0, 0, 0.42);
     }
 
-    .how-panel {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 80 80'%3E%3Cg fill='%23c4a378' fill-opacity='0.09'%3E%3Cellipse cx='40' cy='50' rx='13' ry='11'/%3E%3Ccircle cx='22' cy='32' r='6'/%3E%3Ccircle cx='34' cy='22' r='6'/%3E%3Ccircle cx='50' cy='22' r='6'/%3E%3Ccircle cx='60' cy='34' r='5.5'/%3E%3C/g%3E%3C/svg%3E");
-      background-size: 150px;
+    .mud-panel {
+      background:
+        linear-gradient(180deg, rgba(36, 38, 28, 0.2), transparent 28%),
+        rgba(20, 22, 15, 0.86);
+      border: 1px solid rgba(142, 146, 120, 0.35);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(10px);
     }
 
-    .marquee-track { animation: marquee 36s linear infinite; }
+    .marquee-track { animation: marquee 38s linear infinite; }
     .marquee:hover .marquee-track { animation-play-state: paused; }
 
     @keyframes marquee {
@@ -99,28 +102,14 @@
       to { transform: translateX(-50%); }
     }
 
-    @keyframes float-y {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    .float-y { animation: float-y 6s ease-in-out infinite; }
-
-    @keyframes drift {
-      0%, 100% { transform: translateY(0) rotate(var(--r, -12deg)); }
-      50% { transform: translateY(-12px) rotate(var(--r, -12deg)); }
-    }
-
-    .drift { animation: drift 7s ease-in-out infinite; }
-
     [data-copy].is-copied {
-      background: var(--sage);
-      color: var(--cream);
+      background: var(--olive);
+      color: var(--mud);
     }
 
     #toast {
       opacity: 0;
-      transform: translate(-50%, 10px);
+      transform: translate(-50%, 8px);
       transition: opacity 0.25s ease, transform 0.25s ease;
     }
 
@@ -129,19 +118,9 @@
       transform: translate(-50%, 0);
     }
 
-    @media (max-width: 1023px) {
-      .scene { background-position: 72% center; }
-      .vignette {
-        background:
-          linear-gradient(180deg, rgba(16, 12, 10, 0.78) 0%, rgba(16, 12, 10, 0.84) 45%, rgba(16, 12, 10, 0.9) 100%);
-      }
-    }
-
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .marquee-track,
-      .float-y,
-      .drift { animation: none; }
+      .marquee-track { animation: none; }
     }
   </style>
 </head>
@@ -160,84 +139,67 @@
     </symbol>
   </svg>
 
-  <a href="#top" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[80] focus:rounded-full focus:bg-[#F4EDE2] focus:px-4 focus:py-2 focus:text-[#16110E]">Skip to content</a>
+  <a href="#top" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[80] focus:bg-[#E6E9D8] focus:px-4 focus:py-2 focus:text-[#24261C]">Skip to content</a>
 
-  <header class="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-5">
-    <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 rounded-full border border-[#C4A378]/30 bg-[#16110E]/55 px-2.5 py-2 shadow-[0_10px_40px_rgba(0,0,0,0.28)] backdrop-blur-xl sm:px-3">
-      <a href="#top" class="flex items-center gap-2.5 pl-1">
-        <img src="logo.png" alt="" width="40" height="40" class="h-10 w-10 rounded-full object-cover ring-2 ring-[#C4A378]" />
-        <span class="font-display text-lg italic leading-none text-[#F4EDE2]">yumi umi</span>
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-[#8E9278]/35 bg-[#14160F]/75 backdrop-blur-md">
+    <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-3 py-2.5 sm:px-5">
+      <a href="#top" class="flex min-w-0 items-center gap-2.5">
+        <img src="logo.png" alt="" width="40" height="40" class="h-10 w-10 shrink-0 rounded-md object-cover ring-1 ring-[#C9CDB6]/70" />
+        <span class="font-display truncate text-xl italic leading-none text-[#E6E9D8]">yumi umi</span>
       </a>
-      <nav class="hidden items-center gap-7 text-sm text-[#F4EDE2]/80 lg:flex" aria-label="Primary">
-        <a href="#story" class="transition hover:text-[#C4A378]">The Good Thing</a>
-        <a href="#how" class="transition hover:text-[#C4A378]">How to Buy</a>
-        <a href="#chart" class="transition hover:text-[#C4A378]">Chart</a>
+      <nav class="hidden items-center gap-7 text-sm text-[#C9CDB6] lg:flex" aria-label="Primary">
+        <a href="#watch" class="transition hover:text-[#E6E9D8]">The Watch</a>
+        <a href="#how" class="transition hover:text-[#E6E9D8]">How to Buy</a>
+        <a href="#chart" class="transition hover:text-[#E6E9D8]">Chart</a>
       </nav>
-      <div class="flex items-center gap-2">
-        <a href="https://x.com/yumiu_mi" target="_blank" rel="noopener noreferrer" aria-label="yumi umi on X" class="inline-flex h-10 w-10 overflow-hidden rounded-full ring-2 ring-[#F4EDE2]/70 transition hover:scale-105 hover:ring-[#C4A378]">
+      <div class="flex shrink-0 items-center gap-2">
+        <a href="https://t.me/GigaPikachu" target="_blank" rel="noopener noreferrer" aria-label="yumi umi on Telegram" class="inline-flex h-10 w-10 overflow-hidden rounded-full ring-1 ring-[#C9CDB6]/60 transition hover:scale-105 hover:ring-[#E6E9D8]">
+          <img src="tg.png" alt="" width="40" height="40" class="h-full w-full object-cover" />
+        </a>
+        <a href="https://x.com/Yellow_Kimchi" target="_blank" rel="noopener noreferrer" aria-label="yumi umi on X" class="inline-flex h-10 w-10 overflow-hidden rounded-full ring-1 ring-[#C9CDB6]/60 transition hover:scale-105 hover:ring-[#E6E9D8]">
           <img src="x.png" alt="" width="40" height="40" class="h-full w-full object-cover" />
         </a>
-        <a data-buy href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=TBA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-full bg-[#F4EDE2] px-4 py-2 text-sm font-semibold text-[#2A2118] transition hover:bg-white">Buy Now</a>
+        <a data-buy href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=TBA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-md bg-[#E6E9D8] px-3.5 py-2 text-sm font-semibold text-[#24261C] transition hover:bg-[#F3F5EA] sm:px-4">Buy Now</a>
       </div>
     </div>
   </header>
 
   <main id="top">
-    <section class="relative z-10 flex min-h-[100svh] items-center px-5 pb-20 pt-28">
-      <div class="pointer-events-none absolute left-[8%] top-[18%] hidden text-[#C4A378]/30 lg:block" aria-hidden="true">
-        <svg class="drift h-10 w-10" style="--r:-18deg"><use href="#paw" /></svg>
-      </div>
-      <div class="pointer-events-none absolute bottom-[18%] left-[4%] hidden text-[#CABC9F]/25 lg:block" aria-hidden="true">
-        <svg class="drift h-7 w-7" style="--r:16deg; animation-delay:-2s"><use href="#paw" /></svg>
-      </div>
-
-      <div class="mx-auto grid w-full max-w-6xl items-center lg:grid-cols-[minmax(0,40rem)_1fr]">
-        <div class="relative mx-auto max-w-xl text-center lg:mx-0 lg:text-left">
-          <div class="pointer-events-none absolute -inset-x-8 -inset-y-10 -z-10 rounded-[3rem] bg-[#120e0c]/72 blur-2xl" aria-hidden="true"></div>
-
-          <div class="float-y mx-auto w-fit lg:mx-0">
-            <div class="relative -rotate-6 transition duration-500 hover:rotate-0">
-              <span class="absolute -bottom-2 -right-2 h-full w-full rounded-[1.7rem] bg-[#8EA399]" aria-hidden="true"></span>
-              <img src="logo.png" alt="yumi umi, a wide-eyed tabby kitten" width="160" height="160" class="relative h-32 w-32 rounded-[1.7rem] object-cover ring-2 ring-[#F4EDE2] sm:h-36 sm:w-36" />
-            </div>
-          </div>
-
-          <p class="mt-7 flex items-center justify-center gap-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#C4A378] lg:justify-start">
+    <section class="relative z-10 flex min-h-[100svh] items-center justify-center px-4 pb-28 pt-24">
+      <article class="order w-full max-w-xl">
+        <div class="flex items-center justify-between bg-[#5C5E4A] px-4 py-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[#E6E9D8] sm:text-[11px]">
+          <span>Field order · Solana</span>
+          <span>$umi</span>
+        </div>
+        <div class="px-6 py-8 text-center sm:px-10 sm:py-10">
+          <img src="logo.png" alt="yumi umi, a kitten in a helmet standing the trench" width="220" height="220" class="mx-auto h-40 w-40 rounded-md object-cover ring-1 ring-[#5C5E4A] sm:h-52 sm:w-52" />
+          <p class="mt-6 flex items-center justify-center gap-2 font-mono text-[11px] uppercase tracking-[0.28em] text-[#5C5E4A]">
             <svg class="h-3.5 w-3.5" aria-hidden="true"><use href="#paw" /></svg>
-            solana meme cat
+            trench cat
+          </p>
+          <h1 class="font-display mt-2 text-6xl italic leading-[0.9] tracking-[-0.03em] text-[#24261C] sm:text-7xl">yumi umi</h1>
+          <p class="mt-4 inline-flex items-center gap-2 border border-[#5C5E4A]/50 px-3 py-1 font-mono text-sm text-[#3A3D2C]">
+            <span class="h-1.5 w-1.5 rounded-full bg-[#5C5E4A]" aria-hidden="true"></span>
+            symbol $umi
+          </p>
+          <p class="font-display mx-auto mt-6 max-w-sm text-3xl italic leading-tight text-[#24261C] sm:text-[2.15rem]">
+            “good thing <span class="text-[#5C5E4A]">$umi</span> runs the trenches.”
+          </p>
+          <p class="mx-auto mt-4 max-w-sm text-[15px] leading-relaxed text-[#3A3D2C]">
+            Helmet on. Paws steady. $umi takes the middle of the trench and keeps the whole line kind.
           </p>
 
-          <h1 class="font-display mt-3 text-7xl italic leading-[0.86] tracking-[-0.03em] sm:text-8xl lg:text-9xl">
-            <span class="block text-[#F4EDE2]">yumi</span>
-            <span class="block text-[#C4A378]">umi</span>
-          </h1>
-
-          <div class="mt-5 flex flex-wrap items-center justify-center gap-2 lg:justify-start">
-            <span class="rounded-full border border-[#C4A378]/50 bg-[#16110E]/50 px-3 py-1 font-display text-lg italic text-[#C4A378]">$umi</span>
-            <span class="rounded-full border border-[#8EA399]/40 bg-[#8EA399]/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-[#C3D4CC]">good cat</span>
-          </div>
-
-          <p class="font-display mx-auto mt-6 max-w-md text-3xl italic leading-tight text-[#F4EDE2] sm:text-4xl lg:mx-0">
-            “<span class="text-[#8EA399]">good thing</span> <span class="text-[#C4A378]">$umi</span> runs the trenches.”
-          </p>
-          <p class="mx-auto mt-4 max-w-md text-base leading-relaxed text-[#F4EDE2]/75 lg:mx-0">
-            Wide eyes, fast chain. $umi doesn’t watch from the sidewalk — the good thing runs the trenches.
-          </p>
-
-          <div class="mx-auto mt-7 flex w-full max-w-md items-center gap-3 rounded-full border border-[#C4A378]/40 bg-[#16110E]/75 py-1.5 pl-4 pr-1.5 shadow-[inset_0_1px_0_rgba(244,237,226,0.08)] backdrop-blur-md lg:mx-0">
-            <span class="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#C4A378]">CA</span>
-            <code id="ca-value" class="js-ca min-w-0 flex-1 cursor-pointer truncate text-left font-mono text-sm text-[#F4EDE2]">TBA</code>
-            <button type="button" data-copy class="rounded-full bg-[#F4EDE2] px-4 py-2 text-sm font-semibold text-[#2A2118] transition hover:bg-white" aria-label="Copy contract address">
+          <div class="mx-auto mt-7 flex w-full max-w-md items-center gap-2 border border-[#5C5E4A]/35 bg-[#F3F5EA] py-1.5 pl-3 pr-1.5 text-left">
+            <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-[#5C5E4A]">CA</span>
+            <code id="ca-value" class="js-ca min-w-0 flex-1 cursor-pointer truncate font-mono text-sm text-[#24261C]">TBA</code>
+            <button type="button" data-copy class="rounded-md bg-[#24261C] px-4 py-2 text-sm font-semibold text-[#E6E9D8] transition hover:bg-[#3A3D2C]" aria-label="Copy contract address">
               <span data-copy-label>Copy</span>
             </button>
           </div>
 
-          <div class="mx-auto mt-5 flex w-full max-w-md flex-col gap-3 sm:flex-row lg:mx-0">
-            <a data-buy href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=TBA" target="_blank" rel="noopener noreferrer" class="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-[#F4EDE2] px-6 py-3.5 font-semibold text-[#2A2118] shadow-[0_14px_40px_rgba(196,163,120,0.28)] transition hover:-translate-y-0.5 hover:bg-white">
-              <svg class="h-4 w-4" aria-hidden="true"><use href="#paw" /></svg>
-              Buy Now
-            </a>
-            <a data-chart href="https://dexscreener.com/solana/TBA" target="_blank" rel="noopener noreferrer" class="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-[#F4EDE2]/30 bg-[#16110E]/45 px-6 py-3.5 font-semibold text-[#F4EDE2] backdrop-blur-md transition hover:-translate-y-0.5 hover:border-[#C4A378]">
+          <div class="mx-auto mt-4 flex w-full max-w-md flex-col gap-2.5 sm:flex-row">
+            <a data-buy href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=TBA" target="_blank" rel="noopener noreferrer" class="inline-flex flex-1 items-center justify-center rounded-md bg-[#24261C] px-5 py-3.5 font-semibold text-[#E6E9D8] transition hover:-translate-y-0.5 hover:bg-[#3A3D2C]">Buy Now</a>
+            <a data-chart href="https://dexscreener.com/solana/TBA" target="_blank" rel="noopener noreferrer" class="inline-flex flex-1 items-center justify-center gap-2 rounded-md border border-[#24261C]/25 px-5 py-3.5 font-semibold text-[#24261C] transition hover:-translate-y-0.5 hover:border-[#24261C]">
               <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
                 <path d="M4 19V5M4 19h16" stroke-linecap="round" />
                 <path d="M8 15l3.5-4 2.5 2.5L19 8" stroke-linecap="round" stroke-linejoin="round" />
@@ -246,164 +208,150 @@
             </a>
           </div>
         </div>
-      </div>
+      </article>
     </section>
 
-    <div class="marquee relative z-10 overflow-hidden border-y border-[#C4A378]/30 bg-[#16110E]/75 py-3 backdrop-blur-md" aria-hidden="true">
+    <div class="marquee relative z-10 overflow-hidden border-y border-[#8E9278]/40 bg-[#14160F]/80 py-3 backdrop-blur-md" aria-hidden="true">
       <div class="marquee-track flex w-max">
-        <div class="flex items-center">
-          <span class="px-4 text-sm font-medium uppercase tracking-[0.22em] text-[#F4EDE2]/85">good thing $umi runs the trenches</span>
-          <svg class="h-4 w-4 text-[#C4A378]"><use href="#paw" /></svg>
-          <span class="px-4 text-sm font-medium uppercase tracking-[0.22em] text-[#C4A378]">$umi</span>
-          <svg class="h-4 w-4 text-[#C4A378]"><use href="#paw" /></svg>
-          <span class="px-4 text-sm font-medium uppercase tracking-[0.22em] text-[#F4EDE2]/85">yumi umi</span>
-          <svg class="h-4 w-4 text-[#C4A378]"><use href="#paw" /></svg>
-          <span class="px-4 text-sm font-medium uppercase tracking-[0.22em] text-[#C3D4CC]">good cat</span>
-          <svg class="h-4 w-4 text-[#C4A378]"><use href="#paw" /></svg>
-          <span class="px-4 text-sm font-medium uppercase tracking-[0.22em] text-[#F4EDE2]/85">solana</span>
-          <svg class="h-4 w-4 text-[#C4A378]"><use href="#paw" /></svg>
-          <span class="px-4 text-sm font-medium uppercase tracking-[0.22em] text-[#F4EDE2]/85">good thing $umi runs the trenches</span>
-          <svg class="h-4 w-4 text-[#C4A378]"><use href="#paw" /></svg>
-          <span class="px-4 text-sm font-medium uppercase tracking-[0.22em] text-[#C4A378]">$umi</span>
-          <svg class="h-4 w-4 text-[#C4A378]"><use href="#paw" /></svg>
-          <span class="px-4 text-sm font-medium uppercase tracking-[0.22em] text-[#F4EDE2]/85">yumi umi</span>
-          <svg class="h-4 w-4 text-[#C4A378]"><use href="#paw" /></svg>
-          <span class="px-4 text-sm font-medium uppercase tracking-[0.22em] text-[#C3D4CC]">good cat</span>
-          <svg class="h-4 w-4 text-[#C4A378]"><use href="#paw" /></svg>
-          <span class="px-4 text-sm font-medium uppercase tracking-[0.22em] text-[#F4EDE2]/85">solana</span>
-          <svg class="h-4 w-4 text-[#C4A378]"><use href="#paw" /></svg>
+        <div class="flex items-center font-mono text-[12px] uppercase tracking-[0.22em] text-[#E6E9D8]">
+          <span class="px-4">good thing $umi runs the trenches</span>
+          <svg class="h-3.5 w-3.5 text-[#C9CDB6]"><use href="#paw" /></svg>
+          <span class="px-4 text-[#C9CDB6]">$umi</span>
+          <svg class="h-3.5 w-3.5 text-[#C9CDB6]"><use href="#paw" /></svg>
+          <span class="px-4">yumi umi</span>
+          <svg class="h-3.5 w-3.5 text-[#C9CDB6]"><use href="#paw" /></svg>
+          <span class="px-4 text-[#C9CDB6]">trench cat</span>
+          <svg class="h-3.5 w-3.5 text-[#C9CDB6]"><use href="#paw" /></svg>
+          <span class="px-4">solana</span>
+          <svg class="h-3.5 w-3.5 text-[#C9CDB6]"><use href="#paw" /></svg>
+          <span class="px-4">good thing $umi runs the trenches</span>
+          <svg class="h-3.5 w-3.5 text-[#C9CDB6]"><use href="#paw" /></svg>
+          <span class="px-4 text-[#C9CDB6]">$umi</span>
+          <svg class="h-3.5 w-3.5 text-[#C9CDB6]"><use href="#paw" /></svg>
+          <span class="px-4">yumi umi</span>
+          <svg class="h-3.5 w-3.5 text-[#C9CDB6]"><use href="#paw" /></svg>
+          <span class="px-4 text-[#C9CDB6]">trench cat</span>
+          <svg class="h-3.5 w-3.5 text-[#C9CDB6]"><use href="#paw" /></svg>
+          <span class="px-4">solana</span>
+          <svg class="h-3.5 w-3.5 text-[#C9CDB6]"><use href="#paw" /></svg>
         </div>
-        <div class="flex items-center">
-          <span class="px-4 text-sm font-medium uppercase tracking-[0.22em] text-[#F4EDE2]/85">good thing $umi runs the trenches</span>
-          <svg class="h-4 w-4 text-[#C4A378]"><use href="#paw" /></svg>
-          <span class="px-4 text-sm font-medium uppercase tracking-[0.22em] text-[#C4A378]">$umi</span>
-          <svg class="h-4 w-4 text-[#C4A378]"><use href="#paw" /></svg>
-          <span class="px-4 text-sm font-medium uppercase tracking-[0.22em] text-[#F4EDE2]/85">yumi umi</span>
-          <svg class="h-4 w-4 text-[#C4A378]"><use href="#paw" /></svg>
-          <span class="px-4 text-sm font-medium uppercase tracking-[0.22em] text-[#C3D4CC]">good cat</span>
-          <svg class="h-4 w-4 text-[#C4A378]"><use href="#paw" /></svg>
-          <span class="px-4 text-sm font-medium uppercase tracking-[0.22em] text-[#F4EDE2]/85">solana</span>
-          <svg class="h-4 w-4 text-[#C4A378]"><use href="#paw" /></svg>
-          <span class="px-4 text-sm font-medium uppercase tracking-[0.22em] text-[#F4EDE2]/85">good thing $umi runs the trenches</span>
-          <svg class="h-4 w-4 text-[#C4A378]"><use href="#paw" /></svg>
-          <span class="px-4 text-sm font-medium uppercase tracking-[0.22em] text-[#C4A378]">$umi</span>
-          <svg class="h-4 w-4 text-[#C4A378]"><use href="#paw" /></svg>
-          <span class="px-4 text-sm font-medium uppercase tracking-[0.22em] text-[#F4EDE2]/85">yumi umi</span>
-          <svg class="h-4 w-4 text-[#C4A378]"><use href="#paw" /></svg>
-          <span class="px-4 text-sm font-medium uppercase tracking-[0.22em] text-[#C3D4CC]">good cat</span>
-          <svg class="h-4 w-4 text-[#C4A378]"><use href="#paw" /></svg>
-          <span class="px-4 text-sm font-medium uppercase tracking-[0.22em] text-[#F4EDE2]/85">solana</span>
-          <svg class="h-4 w-4 text-[#C4A378]"><use href="#paw" /></svg>
+        <div class="flex items-center font-mono text-[12px] uppercase tracking-[0.22em] text-[#E6E9D8]">
+          <span class="px-4">good thing $umi runs the trenches</span>
+          <svg class="h-3.5 w-3.5 text-[#C9CDB6]"><use href="#paw" /></svg>
+          <span class="px-4 text-[#C9CDB6]">$umi</span>
+          <svg class="h-3.5 w-3.5 text-[#C9CDB6]"><use href="#paw" /></svg>
+          <span class="px-4">yumi umi</span>
+          <svg class="h-3.5 w-3.5 text-[#C9CDB6]"><use href="#paw" /></svg>
+          <span class="px-4 text-[#C9CDB6]">trench cat</span>
+          <svg class="h-3.5 w-3.5 text-[#C9CDB6]"><use href="#paw" /></svg>
+          <span class="px-4">solana</span>
+          <svg class="h-3.5 w-3.5 text-[#C9CDB6]"><use href="#paw" /></svg>
+          <span class="px-4">good thing $umi runs the trenches</span>
+          <svg class="h-3.5 w-3.5 text-[#C9CDB6]"><use href="#paw" /></svg>
+          <span class="px-4 text-[#C9CDB6]">$umi</span>
+          <svg class="h-3.5 w-3.5 text-[#C9CDB6]"><use href="#paw" /></svg>
+          <span class="px-4">yumi umi</span>
+          <svg class="h-3.5 w-3.5 text-[#C9CDB6]"><use href="#paw" /></svg>
+          <span class="px-4 text-[#C9CDB6]">trench cat</span>
+          <svg class="h-3.5 w-3.5 text-[#C9CDB6]"><use href="#paw" /></svg>
+          <span class="px-4">solana</span>
+          <svg class="h-3.5 w-3.5 text-[#C9CDB6]"><use href="#paw" /></svg>
         </div>
       </div>
     </div>
 
-    <div class="relative z-10 mx-auto max-w-6xl space-y-8 px-4 py-16 sm:px-6">
-      <section id="story" class="panel scroll-mt-28 rounded-[2rem] p-7 sm:p-10 lg:p-14">
-        <div class="grid items-end gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+    <div class="relative z-10 mx-auto max-w-6xl space-y-8 px-4 py-14 sm:px-6">
+      <figure id="watch" class="order scroll-mt-24 overflow-hidden">
+        <img src="banner.jpg" alt="yumi umi, the trench cat, lit against a night sky" class="h-56 w-full object-cover object-[78%_center] sm:h-80 lg:h-[26rem]" />
+        <figcaption class="flex flex-col gap-1 px-5 py-3 font-mono text-[11px] uppercase tracking-[0.18em] text-[#3A3D2C] sm:flex-row sm:items-center sm:justify-between">
+          <span>The watch · banner</span>
+          <span>good thing $umi runs the trenches</span>
+        </figcaption>
+      </figure>
+
+      <section class="mud-panel scroll-mt-24 p-7 sm:p-10 lg:p-12">
+        <div class="grid items-end gap-6 lg:grid-cols-[1fr_1fr]">
           <div>
-            <p class="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#C4A378]">The good thing</p>
-            <h2 class="font-display mt-3 text-4xl italic leading-[0.95] text-[#F4EDE2] sm:text-5xl">A kitten with a job in the trenches.</h2>
+            <p class="font-mono text-[11px] uppercase tracking-[0.28em] text-[#C9CDB6]">Why this cat</p>
+            <h2 class="font-display mt-3 text-4xl italic leading-[0.95] sm:text-5xl">A good thing, posted in the trench.</h2>
           </div>
-          <p class="max-w-xl text-lg leading-relaxed text-[#F4EDE2]/75">
-            yumi umi is the soft face on a loud chain. The name says it twice so you remember: the good thing is <span class="text-[#C4A378]">$umi</span>, and $umi runs the trenches.
+          <p class="max-w-xl text-lg leading-relaxed text-[#E6E9D8]/80">
+            yumi umi is the kitten on the order. The name says it twice so it sticks. The good thing is <span class="text-[#C9CDB6]">$umi</span>, and $umi runs the trenches.
           </p>
         </div>
-
-        <ol class="mt-12 divide-y divide-[#C4A378]/20 border-y border-[#C4A378]/20">
-          <li class="grid gap-3 py-7 sm:grid-cols-[7rem_1fr] sm:gap-8">
-            <span class="font-display text-3xl italic text-[#C4A378]" aria-hidden="true">01</span>
-            <div>
-              <h3 class="font-display text-2xl italic text-[#F4EDE2]">Good, on purpose</h3>
-              <p class="mt-2 max-w-2xl leading-relaxed text-[#F4EDE2]/75">The trenches usually crown the loudest villain. $umi shows up as a kitten and stays that way. Wide eyes, clean paws, no costume. The softness is the whole strategy.</p>
-            </div>
+        <ol class="mt-10 grid gap-4 md:grid-cols-3">
+          <li class="border border-[#8E9278]/30 bg-[#14160F]/45 p-5">
+            <p class="font-mono text-xs tracking-[0.2em] text-[#C9CDB6]">01</p>
+            <h3 class="font-display mt-3 text-2xl italic">Good, on purpose</h3>
+            <p class="mt-2 text-sm leading-relaxed text-[#E6E9D8]/75">The trench usually crowns the loudest snarl. $umi shows up as a kitten and stays one. Soft is the strategy.</p>
           </li>
-          <li class="grid gap-3 py-7 sm:grid-cols-[7rem_1fr] sm:gap-8">
-            <span class="font-display text-3xl italic text-[#C4A378]" aria-hidden="true">02</span>
-            <div>
-              <h3 class="font-display text-2xl italic text-[#F4EDE2]">Runs the trenches</h3>
-              <p class="mt-2 max-w-2xl leading-relaxed text-[#F4EDE2]/75">Other coins pose in the replies. $umi goes in. Messy books, early hours, a timeline that won’t sit still — the good thing runs the trenches anyway, and doesn’t flinch when the feed gets mean.</p>
-            </div>
+          <li class="border border-[#8E9278]/30 bg-[#14160F]/45 p-5">
+            <p class="font-mono text-xs tracking-[0.2em] text-[#C9CDB6]">02</p>
+            <h3 class="font-display mt-3 text-2xl italic">Runs the trenches</h3>
+            <p class="mt-2 text-sm leading-relaxed text-[#E6E9D8]/75">Not a mascot watching from the fire step. $umi takes the duckboards. When the feed gets mean, the good thing is already further down the path.</p>
           </li>
-          <li class="grid gap-3 py-7 sm:grid-cols-[7rem_1fr] sm:gap-8">
-            <span class="font-display text-3xl italic text-[#C4A378]" aria-hidden="true">03</span>
-            <div>
-              <h3 class="font-display text-2xl italic text-[#F4EDE2]">Solana, then paws</h3>
-              <p class="mt-2 max-w-2xl leading-relaxed text-[#F4EDE2]/75">Wallet open. SOL loaded. Contract copied. Swap confirmed. Four steps and you’re beside the good cat, on the chain that doesn’t make you wait around.</p>
-            </div>
+          <li class="border border-[#8E9278]/30 bg-[#14160F]/45 p-5">
+            <p class="font-mono text-xs tracking-[0.2em] text-[#C9CDB6]">03</p>
+            <h3 class="font-display mt-3 text-2xl italic">Solana, then paws</h3>
+            <p class="mt-2 text-sm leading-relaxed text-[#E6E9D8]/75">Wallet, SOL, contract, swap. Four steps. The chain moves, so the cat doesn’t wait on the ladder.</p>
           </li>
         </ol>
       </section>
 
-      <section id="how" class="panel how-panel scroll-mt-28 rounded-[2rem] p-7 sm:p-10 lg:p-14">
+      <section id="how" class="order scroll-mt-24 p-7 sm:p-10 lg:p-12">
         <div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p class="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#C4A378]">
-              <svg class="h-3.5 w-3.5" aria-hidden="true"><use href="#paw" /></svg>
-              Solana · four steps
-            </p>
-            <h2 class="font-display mt-3 text-4xl italic leading-none text-[#F4EDE2] sm:text-6xl">How to Buy</h2>
-            <p class="mt-4 max-w-xl text-[#F4EDE2]/75">Buying $umi is a Solana swap. Four steps, then you’re in the trenches with the good thing.</p>
+          <div class="max-w-xl">
+            <p class="font-mono text-[11px] uppercase tracking-[0.28em] text-[#5C5E4A]">Solana · four steps</p>
+            <h2 class="font-display mt-2 text-5xl italic leading-none sm:text-6xl">How to Buy</h2>
+            <p class="mt-4 text-[#3A3D2C]">Buying $umi is a Solana swap. Four steps down the trench, then the good thing is in your wallet.</p>
           </div>
-          <button type="button" data-copy class="inline-flex w-fit items-center gap-2 rounded-full border border-[#C4A378]/50 bg-[#16110E]/60 px-4 py-2 text-sm font-semibold text-[#F4EDE2] transition hover:border-[#F4EDE2]" aria-label="Copy contract address">
+          <button type="button" data-copy class="inline-flex w-fit items-center gap-2 border border-[#5C5E4A]/40 bg-[#F3F5EA] px-4 py-2 text-sm font-semibold text-[#24261C]" aria-label="Copy contract address">
             CA · <span class="js-ca font-mono">TBA</span>
-            <span data-copy-label class="text-[#C4A378]">Copy</span>
+            <span data-copy-label class="text-[#5C5E4A]">Copy</span>
           </button>
         </div>
 
-        <div class="relative mt-12">
-          <div class="pointer-events-none absolute left-[8%] right-[8%] top-12 hidden h-px bg-gradient-to-r from-transparent via-[#C4A378] to-transparent xl:block" aria-hidden="true"></div>
-          <ol class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            <li class="rounded-3xl border border-[#C4A378]/25 bg-[#120e0c]/65 p-5">
-              <div class="relative z-10 mb-6 grid h-14 w-14 place-items-center rounded-full bg-[#F4EDE2] font-display text-xl italic text-[#2A2118]" aria-hidden="true">01</div>
-              <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#C4A378]">Wallet</p>
-              <h3 class="font-display mt-1 text-2xl italic text-[#F4EDE2]">Open a Solana wallet</h3>
-              <p class="mt-3 text-sm leading-relaxed text-[#F4EDE2]/75">Install <a href="https://phantom.app" target="_blank" rel="noopener noreferrer" class="text-[#C4A378] underline decoration-[#C4A378]/40 underline-offset-2 hover:text-[#F4EDE2]">Phantom</a> or <a href="https://solflare.com" target="_blank" rel="noopener noreferrer" class="text-[#C4A378] underline decoration-[#C4A378]/40 underline-offset-2 hover:text-[#F4EDE2]">Solflare</a>, or open the one you already trust. Write the recovery phrase on paper and keep it offline.</p>
-            </li>
-            <li class="rounded-3xl border border-[#C4A378]/25 bg-[#120e0c]/65 p-5">
-              <div class="relative z-10 mb-6 grid h-14 w-14 place-items-center rounded-full bg-[#CABC9F] font-display text-xl italic text-[#2A2118]" aria-hidden="true">02</div>
-              <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#C4A378]">SOL</p>
-              <h3 class="font-display mt-1 text-2xl italic text-[#F4EDE2]">Fund it with SOL</h3>
-              <p class="mt-3 text-sm leading-relaxed text-[#F4EDE2]/75">Buy SOL in the wallet or send some from an exchange. Leave a little extra behind — the network takes a small fee, and the trenches still charge a toll.</p>
-            </li>
-            <li class="rounded-3xl border border-[#C4A378]/25 bg-[#120e0c]/65 p-5">
-              <div class="relative z-10 mb-6 grid h-14 w-14 place-items-center rounded-full bg-[#C4A378] font-display text-xl italic text-[#2A2118]" aria-hidden="true">03</div>
-              <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#C4A378]">Contract</p>
-              <h3 class="font-display mt-1 text-2xl italic text-[#F4EDE2]">Copy the $umi CA</h3>
-              <p class="mt-3 text-sm leading-relaxed text-[#F4EDE2]/75">Hit Copy. The address reads <span class="js-ca font-mono text-[#F4EDE2]">TBA</span> until the mint is public. When it changes, match it with the CA posted by <a href="https://x.com/yumiu_mi" target="_blank" rel="noopener noreferrer" class="text-[#C4A378] underline decoration-[#C4A378]/40 underline-offset-2 hover:text-[#F4EDE2]">@yumiu_mi</a> before you swap.</p>
-            </li>
-            <li class="rounded-3xl border border-[#C4A378]/25 bg-[#120e0c]/65 p-5">
-              <div class="relative z-10 mb-6 grid h-14 w-14 place-items-center rounded-full bg-[#8EA399] font-display text-xl italic text-[#16110E]" aria-hidden="true">04</div>
-              <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#C4A378]">Swap</p>
-              <h3 class="font-display mt-1 text-2xl italic text-[#F4EDE2]">Swap SOL for $umi</h3>
-              <p class="mt-3 text-sm leading-relaxed text-[#F4EDE2]/75"><a data-buy href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=TBA" target="_blank" rel="noopener noreferrer" class="font-semibold text-[#C4A378] underline decoration-[#C4A378]/40 underline-offset-2 hover:text-[#F4EDE2]">Buy Now</a> opens Pump.fun with SOL in and $umi out. Check the quote, confirm in your wallet, and you’re in the trenches.</p>
-            </li>
-          </ol>
-        </div>
+        <ol class="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          <li class="flex flex-col border border-[#5C5E4A]/25 bg-[#F3F5EA] p-5">
+            <span class="grid h-12 w-12 place-items-center bg-[#24261C] font-mono text-sm text-[#E6E9D8]" aria-hidden="true">01</span>
+            <p class="mt-5 font-mono text-[11px] uppercase tracking-[0.2em] text-[#5C5E4A]">Wallet</p>
+            <h3 class="font-display mt-1 text-2xl italic">Open a Solana wallet</h3>
+            <p class="mt-3 text-sm leading-relaxed text-[#3A3D2C]">Install <a class="underline decoration-[#5C5E4A]/50 underline-offset-2 hover:text-[#24261C]" href="https://phantom.app" target="_blank" rel="noopener noreferrer">Phantom</a> or <a class="underline decoration-[#5C5E4A]/50 underline-offset-2 hover:text-[#24261C]" href="https://solflare.com" target="_blank" rel="noopener noreferrer">Solflare</a>, or open the one you trust. Write the recovery phrase on paper and keep it offline.</p>
+          </li>
+          <li class="flex flex-col border border-[#5C5E4A]/25 bg-[#F3F5EA] p-5">
+            <span class="grid h-12 w-12 place-items-center bg-[#3A3D2C] font-mono text-sm text-[#E6E9D8]" aria-hidden="true">02</span>
+            <p class="mt-5 font-mono text-[11px] uppercase tracking-[0.2em] text-[#5C5E4A]">SOL</p>
+            <h3 class="font-display mt-1 text-2xl italic">Fund it with SOL</h3>
+            <p class="mt-3 text-sm leading-relaxed text-[#3A3D2C]">Buy SOL in the wallet or send some from an exchange. Leave a little extra — the network takes a small fee on the way in.</p>
+          </li>
+          <li class="flex flex-col border border-[#5C5E4A]/25 bg-[#F3F5EA] p-5">
+            <span class="grid h-12 w-12 place-items-center bg-[#5C5E4A] font-mono text-sm text-[#E6E9D8]" aria-hidden="true">03</span>
+            <p class="mt-5 font-mono text-[11px] uppercase tracking-[0.2em] text-[#5C5E4A]">Contract</p>
+            <h3 class="font-display mt-1 text-2xl italic">Copy the $umi CA</h3>
+            <p class="mt-3 text-sm leading-relaxed text-[#3A3D2C]">Hit Copy. The address reads <span class="js-ca font-mono text-[#24261C]">TBA</span> until the mint is public. When it changes, match it with <a class="underline decoration-[#5C5E4A]/50 underline-offset-2" href="https://x.com/Yellow_Kimchi" target="_blank" rel="noopener noreferrer">@Yellow_Kimchi</a> before you swap.</p>
+          </li>
+          <li class="flex flex-col border border-[#5C5E4A]/25 bg-[#F3F5EA] p-5">
+            <span class="grid h-12 w-12 place-items-center bg-[#8E9278] font-mono text-sm text-[#14160F]" aria-hidden="true">04</span>
+            <p class="mt-5 font-mono text-[11px] uppercase tracking-[0.2em] text-[#5C5E4A]">Swap</p>
+            <h3 class="font-display mt-1 text-2xl italic">Swap SOL for $umi</h3>
+            <p class="mt-3 text-sm leading-relaxed text-[#3A3D2C]"><a data-buy class="font-semibold underline decoration-[#5C5E4A]/50 underline-offset-2" href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=TBA" target="_blank" rel="noopener noreferrer">Buy Now</a> opens Pump.fun with SOL in and $umi out. Check the quote, confirm in your wallet, and you’re in the trench.</p>
+          </li>
+        </ol>
 
         <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-          <a data-buy href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=TBA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-full bg-[#F4EDE2] px-6 py-3.5 font-semibold text-[#2A2118] transition hover:-translate-y-0.5 hover:bg-white">
-            Buy Now
-          </a>
-          <a href="#chart" class="inline-flex items-center justify-center gap-2 rounded-full border border-[#F4EDE2]/25 px-6 py-3.5 font-semibold text-[#F4EDE2] transition hover:border-[#C4A378]">
-            See the chart
-          </a>
+          <a data-buy href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=TBA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-md bg-[#24261C] px-6 py-3.5 font-semibold text-[#E6E9D8] transition hover:bg-[#3A3D2C]">Buy Now</a>
+          <a href="#chart" class="inline-flex items-center justify-center rounded-md border border-[#24261C]/20 px-6 py-3.5 font-semibold text-[#24261C] transition hover:border-[#24261C]">See the chart</a>
         </div>
       </section>
 
-      <section id="chart" class="panel scroll-mt-28 overflow-hidden rounded-[2rem]">
-        <div class="flex flex-col gap-5 border-b border-[#C4A378]/20 px-6 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-10">
+      <section id="chart" class="mud-panel scroll-mt-24 overflow-hidden">
+        <div class="flex flex-col gap-5 border-b border-[#8E9278]/25 px-6 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-10">
           <div>
-            <div class="mb-3 flex gap-1.5" aria-hidden="true">
-              <span class="h-2.5 w-2.5 rounded-full bg-[#8EA399]"></span>
-              <span class="h-2.5 w-2.5 rounded-full bg-[#C4A378]"></span>
-              <span class="h-2.5 w-2.5 rounded-full bg-[#CABC9F]"></span>
-            </div>
-            <p class="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#C4A378]">Dexscreener</p>
-            <h2 class="font-display mt-1 text-4xl italic text-[#F4EDE2] sm:text-5xl">Chart</h2>
-            <p class="mt-2 max-w-xl text-sm leading-relaxed text-[#F4EDE2]/70">The live embed for the $umi pair. It follows the same contract as Copy and Buy Now — TBA until the pool is up, then the candle takes the frame.</p>
+            <p class="font-mono text-[11px] uppercase tracking-[0.28em] text-[#C9CDB6]">Dexscreener embed</p>
+            <h2 class="font-display mt-2 text-4xl italic sm:text-5xl">Chart</h2>
+            <p class="mt-2 max-w-xl text-sm leading-relaxed text-[#E6E9D8]/75">The live frame for the $umi pair. It uses the same contract as Copy and Buy Now — TBA until the pool is up, then the candle takes the screen.</p>
           </div>
-          <a data-chart href="https://dexscreener.com/solana/TBA" target="_blank" rel="noopener noreferrer" class="inline-flex w-fit items-center justify-center gap-2 rounded-full bg-[#F4EDE2] px-6 py-3.5 font-semibold text-[#2A2118] transition hover:-translate-y-0.5 hover:bg-white">
+          <a data-chart href="https://dexscreener.com/solana/TBA" target="_blank" rel="noopener noreferrer" class="inline-flex w-fit items-center justify-center gap-2 rounded-md bg-[#E6E9D8] px-6 py-3.5 font-semibold text-[#24261C] transition hover:bg-[#F3F5EA]">
             <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
               <path d="M4 19V5M4 19h16" stroke-linecap="round" />
               <path d="M8 15l3.5-4 2.5 2.5L19 8" stroke-linecap="round" stroke-linejoin="round" />
@@ -411,8 +359,9 @@
             Chart
           </a>
         </div>
-        <div class="h-[28rem] bg-[#100c0a] sm:h-[34rem]">
+        <div class="h-[26rem] bg-[#0C0D0A] sm:h-[34rem]">
           <iframe
+            id="dex-frame"
             title="Dexscreener chart for yumi umi"
             src="https://dexscreener.com/solana/TBA?embed=1&loadChartSettings=0&trades=0&tabs=0&info=0&chartLeftToolbar=0&chartTheme=dark&theme=dark&chartStyle=1&chartType=usd&interval=15"
             class="h-full w-full border-0"
@@ -424,47 +373,68 @@
     </div>
   </main>
 
-  <footer class="relative z-10 border-t border-[#C4A378]/20 bg-gradient-to-t from-[#100c0a] via-[#16110E]/85 to-[#16110E]/40 px-5 pb-28 pt-14 md:pb-14">
+  <footer class="relative z-10 border-t border-[#8E9278]/30 bg-[#14160F]/95 px-5 pb-28 pt-12 md:pb-12">
     <div class="mx-auto flex max-w-6xl flex-col gap-10 md:flex-row md:items-end md:justify-between">
       <div>
         <div class="flex items-center gap-3">
-          <img src="logo.png" alt="" width="56" height="56" class="h-14 w-14 rounded-2xl object-cover ring-2 ring-[#C4A378]" />
+          <img src="logo.png" alt="" width="56" height="56" class="h-14 w-14 rounded-md object-cover ring-1 ring-[#C9CDB6]/70" />
           <div>
-            <p class="font-display text-3xl italic leading-none text-[#F4EDE2]">yumi umi</p>
-            <p class="mt-1 text-sm text-[#C4A378]">$umi</p>
+            <p class="font-display text-3xl italic leading-none">yumi umi</p>
+            <p class="mt-1 font-mono text-xs uppercase tracking-[0.18em] text-[#C9CDB6]">$umi · trench cat</p>
           </div>
         </div>
-        <p class="font-display mt-5 max-w-sm text-2xl italic text-[#F4EDE2]/90">“good thing $umi runs the trenches.”</p>
-        <div class="mt-5 flex w-full max-w-sm items-center gap-3 rounded-full border border-[#C4A378]/30 bg-[#16110E]/70 py-1.5 pl-4 pr-1.5">
-          <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#C4A378]">CA</span>
+        <p class="font-display mt-5 max-w-sm text-2xl italic text-[#E6E9D8]/90">“good thing $umi runs the trenches.”</p>
+        <div class="mt-5 flex w-full max-w-sm items-center gap-2 border border-[#8E9278]/35 bg-[#0C0D0A]/60 py-1.5 pl-3 pr-1.5">
+          <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-[#C9CDB6]">CA</span>
           <code class="js-ca min-w-0 flex-1 truncate font-mono text-sm">TBA</code>
-          <button type="button" data-copy class="rounded-full bg-[#F4EDE2] px-3 py-1.5 text-sm font-semibold text-[#2A2118]" aria-label="Copy contract address">
+          <button type="button" data-copy class="rounded-md bg-[#E6E9D8] px-3 py-1.5 text-sm font-semibold text-[#24261C]" aria-label="Copy contract address">
             <span data-copy-label>Copy</span>
           </button>
         </div>
       </div>
-      <div class="flex flex-col items-start gap-4">
-        <a href="https://x.com/yumiu_mi" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 rounded-full border border-[#F4EDE2]/15 bg-[#16110E]/50 py-1.5 pl-1.5 pr-4 transition hover:border-[#C4A378]">
-          <img src="x.png" alt="" width="36" height="36" class="h-9 w-9 rounded-full object-cover" />
-          <span class="text-sm font-medium text-[#F4EDE2]">@yumiu_mi</span>
+      <div class="flex flex-col items-start gap-3">
+        <a href="https://t.me/GigaPikachu" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 border border-[#8E9278]/30 bg-[#0C0D0A]/40 py-1.5 pl-1.5 pr-4 transition hover:border-[#C9CDB6]">
+          <img src="tg.png" alt="" width="36" height="36" class="h-9 w-9 rounded-full object-cover" />
+          <span class="text-sm">GigaPikachu</span>
         </a>
-        <p class="max-w-xs text-xs leading-relaxed text-[#F4EDE2]/55">$umi is a meme on Solana. It can go to zero. Only use funds you can afford to lose — this page is a door to the trenches, not financial advice.</p>
+        <a href="https://x.com/Yellow_Kimchi" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 border border-[#8E9278]/30 bg-[#0C0D0A]/40 py-1.5 pl-1.5 pr-4 transition hover:border-[#C9CDB6]">
+          <img src="x.png" alt="" width="36" height="36" class="h-9 w-9 rounded-full object-cover" />
+          <span class="text-sm">@Yellow_Kimchi</span>
+        </a>
+        <p class="max-w-xs text-xs leading-relaxed text-[#C9CDB6]/80">$umi is a meme on Solana. It can go to zero. Only use funds you can afford to lose — this page is a door into the trench, not financial advice.</p>
       </div>
     </div>
   </footer>
 
-  <div class="fixed inset-x-0 bottom-0 z-50 border-t border-[#C4A378]/25 bg-[#16110E]/85 p-3 backdrop-blur-xl md:hidden">
+  <div class="fixed inset-x-0 bottom-0 z-50 border-t border-[#8E9278]/30 bg-[#14160F]/90 p-3 backdrop-blur-xl md:hidden">
     <div class="grid grid-cols-2 gap-2">
-      <a data-chart href="https://dexscreener.com/solana/TBA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full border border-[#F4EDE2]/30 py-3 text-sm font-semibold text-[#F4EDE2]">Chart</a>
-      <a data-buy href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=TBA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full bg-[#F4EDE2] py-3 text-sm font-semibold text-[#2A2118]">Buy Now</a>
+      <a data-chart href="https://dexscreener.com/solana/TBA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-md border border-[#C9CDB6]/40 py-3 text-sm font-semibold text-[#E6E9D8]">Chart</a>
+      <a data-buy href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=TBA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-md bg-[#E6E9D8] py-3 text-sm font-semibold text-[#24261C]">Buy Now</a>
     </div>
   </div>
 
-  <div id="toast" role="status" class="fixed bottom-24 left-1/2 z-[70] rounded-full bg-[#F4EDE2] px-4 py-2 text-sm font-semibold text-[#2A2118] shadow-lg md:bottom-8"></div>
+  <div id="toast" role="status" class="fixed bottom-24 left-1/2 z-[70] bg-[#E6E9D8] px-4 py-2 text-sm font-semibold text-[#24261C] shadow-lg md:bottom-8"></div>
 
   <script>
+    // Paste the mint here when it is live. Copy, Buy Now, Chart, and the embed follow it.
+    const CA = "TBA";
+    const BUY = "https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=" + encodeURIComponent(CA);
+    const CHART = "https://dexscreener.com/solana/" + encodeURIComponent(CA);
+    const EMBED = CHART + "?embed=1&loadChartSettings=0&trades=0&tabs=0&info=0&chartLeftToolbar=0&chartTheme=dark&theme=dark&chartStyle=1&chartType=usd&interval=15";
+
+    document.querySelectorAll(".js-ca").forEach((el) => {
+      el.textContent = CA;
+    });
+    document.querySelectorAll("[data-buy]").forEach((el) => {
+      el.href = BUY;
+    });
+    document.querySelectorAll("[data-chart]").forEach((el) => {
+      el.href = CHART;
+    });
+    const frame = document.getElementById("dex-frame");
+    if (frame && frame.getAttribute("src") !== EMBED) frame.setAttribute("src", EMBED);
+
     const caValue = document.getElementById("ca-value");
-    const CA = caValue ? caValue.textContent.trim() : "TBA";
     const toast = document.getElementById("toast");
     let toastTimer = 0;
 
